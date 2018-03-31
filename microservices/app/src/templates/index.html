@@ -11,9 +11,9 @@
     </head>
     <body style="color: #333">
         <div style="max-width: fill;">
-            
+
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="index.html">BreakingBeariersLA</a>
+              <a class="navbar-brand" href="index.html">BreakingBarriersLA</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -31,22 +31,28 @@
                 </ul>
               </div>
                 <div class=".container">
-                <button type="button" class="btn btn-primary">Sign Up</button>
-                <button type="button" class="btn btn-primary" style="margin-left:30px;">Log In</button>
+                <!-- <button type="button" class="btn btn-primary">Sign Up</button>
+                <button type="button" class="btn btn-primary" style="margin-left:30px;">Log In</button> -->
+                <a href="https://auth.conductible49.hasura-app.io/ui/login">
+                  <button type="button" class="btn btn-primary">Login</button>
+                </a>
+                <a href="https://auth.conductible49.hasura-app.io/ui/logout">
+                    <button type="button" class="btn btn-primary" style="margin-left:30px;">Logout</button>
+                </a>
                 </div>
             </nav>
 
-            
+
                 <div id="map"></div>
-            
+
                 <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
                 </script>
 
 
-        
+
         </div>
-        
+
         <script>
           function initMap() {
             var coord = {lat: 34.047336, lng: -118.339229};
@@ -61,9 +67,9 @@
             });
             */
           }
-        
-         /* 
-            this is to change the map using inputs 
+
+         /*
+            this is to change the map using inputs
          */
           function change(){
             alert("hello");
@@ -76,8 +82,8 @@
             var marker = new google.maps.Marker({
               position: uluru,
               map: map
-            
-            });     
+
+            });
           }
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
