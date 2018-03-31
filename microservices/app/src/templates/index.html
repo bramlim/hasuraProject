@@ -5,22 +5,29 @@
         <style>
             body {font-family: sans-serif; line-height: 23px;}
             code {color: #222; background: #f9f9f9;}
+            #map {
+                height: 400px;
+                width: 100%;
+               }
         </style>
     </head>
     <body style="color: #333">
         <div style="max-width: 800px; margin: 0 auto;">
-            <h1>Hello world.</h1>
-            <hr/>
             Make changes at <code>microservices/app/src/server.py</code> and <code>git push</code> to deploy.
             <br/>
             <br/>
-            <iframe
-              width="600"
-              height="450"
-              frameborder="0" style="border:0"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw
-                &q=Space+Needle,Seattle+WA" allowfullscreen>
-            </iframe>
+            <form>
+                <input type="text" id="input" name="variable">
+                <br>
+                <button type="button" onClick="change();">CLICK</button>
+            </form>
+                <h3>My Google Maps Demo</h3>
+                <div id="map"></div>
+            
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
+                </script>
+
             <h3>Backend examples</h3>
             <hr/>
             <a href="/examples/data">/examples/data</a>:<br/>
@@ -32,6 +39,39 @@
             <br/><br/>
             <a href="/examples/filestore">/examples/filestore</a>:<br/>
             Allow users to upload files without writing file-handling code.<br/>
+        
         </div>
+        
+        <script>
+          function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 4,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        
+         /* 
+            this is to change the map using inputs 
+         */
+          function change(){
+            alert("hello");
+            var input =document.getElementById('input');
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: Number(input.value),
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            
+            });     
+          }
+        </script>
     </body>
 </html>
