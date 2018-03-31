@@ -3,83 +3,128 @@
     <head>
         <title>Hello world - Python Flask</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:Bold" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
         <style>
             body {font-family: sans-serif; line-height: 23px;}
-            code {color: #222; background: #f9f9f9;}
             #map {height: 678px;width: 100%;}
+            nav {
+              margin-bottom: 20px;
+            }
+
+            .title {
+              margin-left: 20px;
+              font-family: "Raleway", sans-serif;
+            }
+
+            #translation {
+              border-radius: 10px;
+              box-shadow: 0 0 100px rgba(0,0,0,.1);
+              min-height: 300px;
+            }
         </style>
+      <script src="{{url_for('static', filename='map.js')}}"></script>
+
     </head>
-    <body style="color: #333">
-        <div style="max-width: fill;">
-            
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="index.html">BreakingBeariersLA</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Disabled</a>
-                  </li>
-                </ul>
-              </div>
-                <div class=".container">
-                <button type="button" class="btn btn-primary">Sign Up</button>
-                <button type="button" class="btn btn-primary" style="margin-left:30px;">Log In</button>
+    <body>
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light pt-4">
+                <a class="navbar-brand title" href="index.html">BreakingBarriersLA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Disabled</a>
+                    </li>
+                  </ul>
                 </div>
-            </nav>
+                  <div class=".container pr-4">
+                  <button type="button" class="btn btn-secondary btn-md mr-4">Log In</button>
+                  </div>
+              </nav>
 
-            
-                <div id="map"></div>
-            
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
-                </script>
+        <div class="container w-85">
+            <div class="container w-75 mb-3">
+                <div class="row text-center">
+                  <div class="col-sm">
+                    <button type="button" class="btn btn-outline-dark" id="kt" onclick="toggle(this.id)">Korea Town</button>
+                  </div>
+                  <div class="col-sm">
+                      <button type="button" class="btn btn-outline-dark" id="lt" onclick="toggle(this.id)">Little Tokyo</button>
+                  </div>
+                  <div class="col-sm">
+                      <button type="button" class="btn btn-outline-dark" id="me" onclick="toggle(this.id)">Mexican</button>
+                  </div>
+                  <div class="col-sm">
+                      <button type="button" class="btn btn-outline-dark" id="ct" onclick="toggle(this.id)">China Town</button>
+                  </div>
 
+                </div>
+              </div>
+              
+              <script type="text/javascript">
+                function toggle(clicked_id){
+                  if (document.getElementById(clicked_id).className != "btn btn-dark") {
+                    document.getElementById(clicked_id).className = "btn btn-dark";
+                  } else {
+                    document.getElementById(clicked_id).className = "btn btn-outline-dark";
+                  }
+                }
+              </script>
+                  
+      
+                  
+                      <div id="map"></div>
+                  
+                      <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
+                      </script>
 
-        
+              <div class="container mt-4 pt-3" id="translation">
+                <h4 class="title">Learn their language! </h4>
+
+                <div class="row">
+
+                  <div class="col">
+                    Good Morning
+                  </div>
+
+                  <div class="col">
+                    Selamat Pagi
+                  </div>
+
+                  <div class="col">
+                    Can I have one fried rice?
+                  </div>
+
+                  <div class="col">
+                    Nasi goreng satu pak!
+                  </div>
+
+                </div>
+                <form>
+                  <div class="form-group row px-5">
+                      <input type="translate" class="form-control-sm col-sm" id="inputTranslation" placeholder="What do you want to say?">
+
+                  </div>
+                </form>
+              </div>
+              
+              </div>
+              
         </div>
+
         
-        <script>
-          function initMap() {
-            var coord = {lat: 34.047336, lng: -118.339229};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 9,
-              center: coord
-            });
-            /*
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-            });
-            */
-          }
         
-         /* 
-            this is to change the map using inputs 
-         */
-          function change(){
-            alert("hello");
-            var input =document.getElementById('input');
-            var uluru = {lat: -25.363, lng: 131.044};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: Number(input.value),
-              center: uluru
-            });
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-            
-            });     
-          }
-        </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
