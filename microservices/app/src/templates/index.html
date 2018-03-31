@@ -5,6 +5,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway:Bold" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="map2.js"></script>
 
         <style>
             body {font-family: sans-serif; line-height: 23px;}
@@ -23,11 +24,13 @@
               box-shadow: 0 0 100px rgba(0,0,0,.1);
               min-height: 300px;
             }
+            
+
         </style>
       <script src="{{url_for('static', filename='map.js')}}"></script>
 
     </head>
-    <body>
+    <body >
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light pt-4">
                 <a class="navbar-brand title" href="index.html">BreakingBarriersLA</a>
@@ -56,18 +59,29 @@
             <div class="container w-75 mb-3">
                 <div class="row text-center">
                   <div class="col-sm">
-                    <button type="button" class="btn btn-outline-dark" id="kt" onclick="toggle(this.id)">Korea Town</button>
+                    <button type="button" class="btn btn-outline-dark" id="kt" onclick="zoomIn('korea')" >Korea Town</button>
+                  </div>
+                  <div class="col-sm" >
+                      <button type="button" class="btn btn-outline-dark" id="lt" onclick="zoomIn('tokyo')" >Little Tokyo</button>
                   </div>
                   <div class="col-sm">
-                      <button type="button" class="btn btn-outline-dark" id="lt" onclick="toggle(this.id)">Little Tokyo</button>
+                      <button type="button" class="btn btn-outline-dark" id="me" onclick="zoomIn('mexican')">Mexican</button>
                   </div>
                   <div class="col-sm">
-                      <button type="button" class="btn btn-outline-dark" id="me" onclick="toggle(this.id)">Mexican</button>
+                      <button type="button" class="btn btn-outline-dark" id="ct" onclick="zoomIn('china')" >China Town</button>
                   </div>
-                  <div class="col-sm">
-                      <button type="button" class="btn btn-outline-dark" id="ct" onclick="toggle(this.id)">China Town</button>
-                  </div>
-
+                </div>
+                <br>
+                <div class="row text-center" id="search" >
+                    <div class="col-sm" id="parkBtn" >
+                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('parking')">Parking</button>
+                    </div>
+                    <div class="col-sm" id="restBtn" >
+                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('restaurant')">Restaurant</button>
+                    </div>
+                    <div class="col-sm" id="hotelsBtn" >
+                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('hotels')">Hotels</button>
+                    </div>
                 </div>
               </div>
               
