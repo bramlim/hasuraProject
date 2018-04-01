@@ -8,9 +8,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway:Bold" rel="stylesheet">
         <link href= "{{ url_for('static',filename='styles/main.css') }}"   rel="stylesheet">
-        <script async defer
-                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
-                      </script>
+        <script src="{{url_for('static', filename='map.js')}}"></script>
     </head>
     <body>
         <div class="container-fluid p-0">
@@ -126,6 +124,8 @@
                       </div>
                   </div>
         </div>
-        <script src="{{url_for('static', filename='map.js')}}"></script>
+        <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
+                      </script>
     </body>
 </html>
