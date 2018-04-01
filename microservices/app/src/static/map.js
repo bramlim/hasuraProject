@@ -1,5 +1,5 @@
 var latitude;
-var longitude; 
+var longitude;
 var map; //store map
 var marker; //store marker
 var listOfUserMark = null;
@@ -14,7 +14,7 @@ var areaKorea = [
   {lat: 34.05262031932687, lng: -118.29157386243},
   {lat: 34.06895324862442, lng: -118.2916739097037},
   {lat: 34.06896951479911, lng: -118.3092087381458},
-  {lat: 34.0525754771699, lng: -118.3090782283946}  
+  {lat: 34.0525754771699, lng: -118.3090782283946}
 ];
 var areaMexican = [
   {lat: 34.05650612681695, lng: -118.2411373518275},
@@ -43,21 +43,21 @@ var areaChina = [
     {lng: -118.2411670659619, lat: 34.05648669980661},
     {lng: -118.2394833855485, lat: 34.05822714767096},
     {lng: -118.2377826842755, lat: 34.05828487747829},
-    {lng: -118.2369906663153, lat: 34.05806854110686}, 
-    {lng: -118.2376586277279, lat: 34.05461286883442}, 
-    {lng: -118.2245502232699, lat:34.05301968538861}, 
-    {lng: -118.2233259216813, lat: 34.05328304010678}, 
-    {lng: -118.2214767670942,lat: 34.05503652577663}, 
-    {lng: -118.2200992963867,lat: 34.0554120656456}, 
-    {lng: -118.2153554780725, lat: 34.05691835720618}, 
-    {lng: -118.2159132216392, lat: 34.06185053840909}, 
+    {lng: -118.2369906663153, lat: 34.05806854110686},
+    {lng: -118.2376586277279, lat: 34.05461286883442},
+    {lng: -118.2245502232699, lat:34.05301968538861},
+    {lng: -118.2233259216813, lat: 34.05328304010678},
+    {lng: -118.2214767670942,lat: 34.05503652577663},
+    {lng: -118.2200992963867,lat: 34.0554120656456},
+    {lng: -118.2153554780725, lat: 34.05691835720618},
+    {lng: -118.2159132216392, lat: 34.06185053840909},
     {lng: -118.2167482124848,lat: 34.06779949206755},
-    {lng: -118.2191252470097,lat: 34.07242437631155}, 
-    {lng: -118.219728618433, lat: 34.0735934092032}, 
-    {lng: -118.2195150037874, lat: 34.07629608324}, 
-    {lng: -118.2212715645936, lat: 34.07937976605676}, 
+    {lng: -118.2191252470097,lat: 34.07242437631155},
+    {lng: -118.219728618433, lat: 34.0735934092032},
+    {lng: -118.2195150037874, lat: 34.07629608324},
+    {lng: -118.2212715645936, lat: 34.07937976605676},
     {lng: -118.2237853647657, lat: 34.08095579808275},
-    {lng: -118.2242760336571, lat: 34.08116664014705}, 
+    {lng: -118.2242760336571, lat: 34.08116664014705},
     {lng: -118.230706412415, lat: 34.07643218280269},
     {lng: -118.2343094181746, lat: 34.07310377161101},
     {lng: -118.2362287196334, lat: 34.0691212320007},
@@ -82,9 +82,9 @@ function initMap() {
 
 
 function zoomIn(line){
-    
+
     var elem = document.getElementById('search');
-    
+
     if(line === 'korea'){
         latitude = 34.061578;
         longitude = -118.302273;
@@ -96,7 +96,7 @@ function zoomIn(line){
            strokeOpacity: 0.8,
            strokeWeight: 2,
            fillColor: '#FF0000',
-           fillOpacity: 0.35  
+           fillOpacity: 0.35
         });
         area.setMap(map);
         currentRegion = 'Korea';
@@ -113,11 +113,11 @@ function zoomIn(line){
            strokeOpacity: 0.8,
            strokeWeight: 2,
            fillColor: '#FF0000',
-           fillOpacity: 0.35  
+           fillOpacity: 0.35
         });
         area.setMap(map);
     }
-    
+
     else if(line === 'mexican'){
         latitude = 34.056945;
         longitude = -118.238417;
@@ -130,7 +130,7 @@ function zoomIn(line){
            strokeOpacity: 0.8,
            strokeWeight: 2,
            fillColor: '#FF0000',
-           fillOpacity: 0.35  
+           fillOpacity: 0.35
         });
         area.setMap(map);
 
@@ -147,7 +147,7 @@ function zoomIn(line){
            strokeOpacity: 0.8,
            strokeWeight: 2,
            fillColor: '#FF0000',
-           fillOpacity: 0.35  
+           fillOpacity: 0.35
         });
         area.setMap(map);
     }
@@ -155,14 +155,14 @@ function zoomIn(line){
 
   function find(){
     //return search to json file
-      
+
     var line = document.getElementById('myInput').value;
-      
+
     if (currentRegion === null){
         alert("Please identify a region!");
         return;
     }
-    
+
     var coor;
     var z;
     if(currentRegion === 'tokyo'){
@@ -181,50 +181,50 @@ function zoomIn(line){
         coor = latlngKorea;
         z = 14;
     }
-      
-  
+
+
     if(listOfUserMark !== null){
         deleteMarkers();
     }
     else{
         listOfUserMark = [];
     }
-    
-   	var http =  
+
+   	var http =
     'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + "," + longitude + '&radius=1000&type=' + line + '&key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw';
-    
-    
+
+
     console.log(http);
-      
+
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
             var obj = JSON.parse(xmlHttp.responseText);
             //alert(obj.results[0].geometry.location.lat);
-            
+
             var myLatlng;
-            
+
             for(var i = 0; i < obj.results.length; i++){
                 myLatlng = new google.maps.LatLng(obj.results[i].geometry.location.lat,obj.results[i].geometry.location.lng);
-                
+
                 marker = new google.maps.Marker({
                    position: myLatlng,
                    map: map,
                    name: obj.results[i].name
                 });
-                
+
                 // google.maps.event.addListener(marker, 'click', function(){
                 //     alert(marker.name);
                 // })
-                
+
                 listOfUserMark.push(marker);
-                
+
             }
-        }       
+        }
     }
-    xmlHttp.open("GET", http, true); 
-    xmlHttp.send({ 'request': "authentication token" });  
-    
+    xmlHttp.open("GET", http, true);
+    xmlHttp.send({ 'request': "authentication token" });
+
     // alert('end');
     return false;
   }
@@ -238,19 +238,19 @@ function deleteMarkers(){
     }
         listOfUserMark = null;
     }
-    
+
     listOfUserMark = [];
-    
+
 }
- 
+
 
 
 //this is to add parking space
 function addMarker(){
-    
+
     var elem = document.getElementById('map');
     var but = document.getElementById('parking');
-    
+
     var cen = map.getCenter();
     if(but.innerHTML === 'Add Parking'){
             marker = new google.maps.Marker({
@@ -377,3 +377,29 @@ var countries = ["accounting", "airport", "amusement_park","aquarium","art_galle
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
+
+/* Backend code for Google translation API */
+$(document).ready(function () {
+  $("#my_popup").popup({
+      background: false,
+      horizontal: "center"
+    });
+  $('#translateButton').click(function(){
+      var text = $('#txt_text').val();
+      var target = $('#txt_target').val();
+      $.ajax({
+          url: '/translatedText',
+          data: $('form').serialize(),
+          type: 'POST',
+          success: function(response) {
+              //console.log(response);
+
+              $('#resultTranslated').html(response);
+              $('#myModal').modal('show');
+          },
+          error: function(error) {
+              console.log(error);
+          }
+      });
+  });
+ });

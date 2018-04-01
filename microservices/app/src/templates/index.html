@@ -1,8 +1,10 @@
-Ω<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Hello world - Python Flask</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway:Bold" rel="stylesheet">
         <link href= "{{ url_for('static',filename='styles/main.css') }}"   rel="stylesheet">
@@ -18,7 +20,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" href="#">Features</a>
                     </li>
                     <li class="nav-item">
@@ -26,7 +28,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Disabled</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
                   <div class=".container pr-4">
@@ -51,7 +53,7 @@
                       <button type="button" class="btn btn-outline-dark" id="lt" onclick="zoomIn('tokyo')" >Little Tokyo</button>
                   </div>
                   <div class="col-sm">
-                      <button type="button" class="btn btn-outline-dark" id="me" onclick="zoomIn('mexican')">Mexican</button>
+                      <button type="button" class="btn btn-outline-dark" id="me" onclick="zoomIn('mexican')">Olvera Street</button>
                   </div>
                   <div class="col-sm">
                       <button type="button" class="btn btn-outline-dark" id="ct" onclick="zoomIn('china')" >China Town</button>
@@ -77,53 +79,64 @@
                   }
                 }
               </script>
-
-
-
                       <div id="map"></div>
 
                       <script async defer
                       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
                       </script>
 
-              <div class="container mt-4 pt-3" id="translation">
-                <h4 class="title">Learn their language! </h4>
+                      <div class="container  bg-1 mt-4 pt-3" id="translation">
+                    <h4 class="title text-center">Learn their language! </h4>
 
-                <div class="row">
 
-                  <div class="col">
-                    Good Morning
+                    <form>
+                     <div align="center">
+                      <d1 class="d1-horizontal">
+                          <dt>Good Morning</dt>
+                          <dd><p class="lead">selamat pagi</p></dd>
+                          <dt>Milk</dt>
+                          <dd><p class="lead">susu</p></dd>
+                          <dt>Coffee</dt>
+                          <dd><p class="lead">kopi</p></dd>
+                      </d1>
+                      </div>
+                   </form>
+                    <form>
+                      <div class=class="form-signin" action="/" method="post" role="form">
+                          <input type="text" class="form-control-sm col-sm" id = "txt_text" name="text"  placeholder="What do you want to say?">
+                          <select name="target" id = "txt_target">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="ko">Korean</option>
+                            <option value="ja">Japanese</option>
+                            <option value="zh-CN">Chinese(Simplified)</option>
+                            <option value="zh-TW">Chinese(Traditional)</option>
+                          </select>
+                          <!-- <input type="text" id = "txt_target" name="target" class="form-control" placeholder="Language" required> -->
+                          <button class="btn btn-info btn-lg" data-target="#myModal" id ="translateButton" type="button">Translate</button>
+                      <!-- Add content to the popup -->
+                      <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                         <!-- Modal content-->
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <h4 class="modal-title" style="color:black">Results of Translation</h4>
+                           </div>
+                           <div class="modal-body">
+                             <p id="resultTranslated" style="color:black"></p>
+                           </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                         </div>
+
+                        </div>
+                        </div>
+                         </div>
+                        </form>
+                      </div>
                   </div>
-
-                  <div class="col">
-                    Selamat Pagi
-                  </div>
-
-                  <div class="col">
-                    Can I have one fried rice?
-                  </div>
-
-                  <div class="col">
-                    Nasi goreng satu pak!
-                  </div>
-
-                </div>
-                <form>
-                  <div class="form-group row px-5">
-                      <input type="translate" class="form-control-sm col-sm" id="inputTranslation" placeholder="What do you want to say?">
-
-                  </div>
-                </form>
-              </div>
-
-              </div>
-
         </div>
-
-
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
         <script src="{{url_for('static', filename='map.js')}}"></script>
     </body>
 </html>

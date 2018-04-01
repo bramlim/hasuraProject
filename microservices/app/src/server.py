@@ -7,12 +7,8 @@ from google.cloud import translate
 def home():
     return render_template('index.html')
 
-@app.route('/signUp')
-def signUp():
-    return render_template('sign_up.html')
-
-@app.route('/signUpUser', methods=['POST'])
-def signUpUser():
+@app.route('/translatedText', methods=['POST'])
+def translatedText():
     translate_client = translate.Client()
     text =  request.form['text'];
     target = request.form['target'];
@@ -20,8 +16,7 @@ def signUpUser():
         # Text can also be a sequence of strings, in which case this method
         # will return a sequence of results for each text.
     result = translate_client.translate(text, target_language=target)
-    #return json.dumps({'result':result})
-    return u'Translation: {}'.format(result['translatedText'])
+    return u'{}'.format(result['translatedText'])
 
     # translate_client = translate.Client();
     # text =  request.form['text'];
