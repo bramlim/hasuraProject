@@ -8,10 +8,13 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway:Bold" rel="stylesheet">
         <link href= "{{ url_for('static',filename='styles/main.css') }}"   rel="stylesheet">
-
-
+        <script>
+          window.document.onload = function(){
+            initMap();
+        }
+        </script>
     </head>
-    <body >
+    <body>
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light pt-4">
                 <a class="navbar-brand title" href="index.html">BreakingBarriersLA</a>
