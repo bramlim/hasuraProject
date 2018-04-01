@@ -7,11 +7,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link href="main.css" rel="stylesheet">
 
-        <style>
-
-            
-
-        </style>
       <script src="{{url_for('static', filename='map2.js')}}"></script>
 
     </head>
@@ -36,7 +31,14 @@
                   </ul>
                 </div>
                   <div class=".container pr-4">
-                  <button type="button" class="btn btn-secondary btn-md mr-4">Log In</button>
+
+                    <a href="https://auth.conductible49.hasura-app.io/ui/login">
+                      <button type="button" class="btn btn-secondary btn-md mr-4">Login</button>
+                    </a>
+                    <a href="https://auth.conductible49.hasura-app.io/ui/logout">
+                        <button type="button" class="btn btn-secondary btn-md mr-4" style="margin-left:30px;">Logout</button>
+                    </a>
+                  
                   </div>
               </nav>
 
@@ -57,19 +59,7 @@
                   </div>
                 </div>
                 <br>
-                <!--<div class="row text-center" id="search" >-->
-                    <!--
-                    <div class="col-sm" id="parkBtn" >
-                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('parking')">Parking</button>
-                    </div>
-                    <div class="col-sm" id="restBtn" >
-                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('restaurant')">Restaurant</button>
-                    </div>
-                    <div class="col-sm" id="hotelsBtn" >
-                    <button type="button" class="btn btn-primary btn-md-mr-4" onclick="find('hotels')">Hotels</button>
-                    </div>
-                    -->
-                    <!--Make sure the form has the autocomplete function switched off:-->
+
                     <form autocomplete="off" onsubmit="return find();" action="">
                      
                           <div class="autocomplete" >
@@ -79,7 +69,7 @@
                     </form>
                 <!--</div>-->
               </div>
-              
+
               <script type="text/javascript">
                 function toggle(clicked_id){
                   if (document.getElementById(clicked_id).className != "btn btn-dark") {
@@ -89,11 +79,11 @@
                   }
                 }
               </script>
-                  
-      
-                  
+
+
+
                       <div id="map"></div>
-                  
+
                       <script async defer
                       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
                       </script>
@@ -127,13 +117,13 @@
                   </div>
                 </form>
               </div>
-              
+
               </div>
-              
+
         </div>
 
-        
-        
+
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="map2.js"></script>
     </body>

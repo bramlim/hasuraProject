@@ -27,7 +27,7 @@ defaultProviders:
     enabled: "false"
     defaultRoles: []
   google:
-    enabled: "false"
+    enabled: "true"
     defaultRoles: []
   facebook:
     enabled: "false"
@@ -120,14 +120,14 @@ password:
 # Below fields are all optional
 #
 # Configuration for google provider
-#google:
-#  # list of the all the client ids generated for your Google app
-#  clientIds: ["xxxxxx", "yyyyyy"]
-#  clientSecret:
-#    secretKeyRef:
-#      key: auth.google.client_secret
-#      name: hasura-secrets
-#
+google:
+ # list of the all the client ids generated for your Google app
+clientIds: ["476090074978-bren6jslielit3gvbmr9uhljeig6r02j.apps.googleusercontent.com"]
+clientSecret:
+   secretKeyRef:
+     key: auth.google.client_secret
+     name: hasura-secrets
+
 # Configuration for facebook provider
 #facebook:
 #  # your facebook app client id
