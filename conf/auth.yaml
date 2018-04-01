@@ -123,7 +123,7 @@ password:
 google:
  # list of the all the client ids generated for your Google app
 clientIds: ["476090074978-bren6jslielit3gvbmr9uhljeig6r02j.apps.googleusercontent.com"]
-clientSecret: "5wEENYOV0K-RMQTj0b961Msx"
+clientSecret: 5wEENYOV0K-RMQTj0b961Msx
    secretKeyRef:
      key: auth.google.client_secret
      name: hasura-secrets
