@@ -24,7 +24,7 @@
               box-shadow: 0 0 100px rgba(0,0,0,.1);
               min-height: 300px;
             }
-            
+
 
         </style>
       <script src="{{url_for('static', filename='map.js')}}"></script>
@@ -51,7 +51,14 @@
                   </ul>
                 </div>
                   <div class=".container pr-4">
-                  <button type="button" class="btn btn-secondary btn-md mr-4">Log In</button>
+
+                    <a href="https://auth.conductible49.hasura-app.io/ui/login">
+                      <button type="button" class="btn btn-secondary btn-md mr-4">Login</button>
+                    </a>
+                    <a href="https://auth.conductible49.hasura-app.io/ui/logout">
+                        <button type="button" class="btn btn-secondary btn-md mr-4" style="margin-left:30px;">Logout</button>
+                    </a>
+                  
                   </div>
               </nav>
 
@@ -84,7 +91,7 @@
                     </div>
                 </div>
               </div>
-              
+
               <script type="text/javascript">
                 function toggle(clicked_id){
                   if (document.getElementById(clicked_id).className != "btn btn-dark") {
@@ -94,11 +101,11 @@
                   }
                 }
               </script>
-                  
-      
-                  
+
+
+
                       <div id="map"></div>
-                  
+
                       <script async defer
                       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhYiSK8JgigmskxIU2uC3xw8Zk-TNbIw&callback=initMap">
                       </script>
@@ -132,13 +139,13 @@
                   </div>
                 </form>
               </div>
-              
+
               </div>
-              
+
         </div>
 
-        
-        
+
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
