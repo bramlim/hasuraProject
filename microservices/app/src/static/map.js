@@ -199,7 +199,6 @@ function zoomIn(line){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-            alert(xmlHttp.responseText);
             var obj = JSON.parse(xmlHttp.responseText);
             //alert(obj.results[0].geometry.location.lat);
             
@@ -214,9 +213,9 @@ function zoomIn(line){
                    name: obj.results[i].name
                 });
                 
-                google.maps.event.addListener(marker, 'click', function(){
-                    alert(marker.name);
-                })
+                // google.maps.event.addListener(marker, 'click', function(){
+                //     alert(marker.name);
+                // })
                 
                 listOfUserMark.push(marker);
                 
@@ -226,7 +225,7 @@ function zoomIn(line){
     xmlHttp.open("GET", http, true); 
     xmlHttp.send({ 'request': "authentication token" });  
     
-    alert('end');
+    // alert('end');
     return false;
   }
 
