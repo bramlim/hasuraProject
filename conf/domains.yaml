@@ -1,6 +1,6 @@
 # Domain configuration for the gateway
 # Hasura allots a cluster-name.hasura-app.io for every cluster
-www.breakbarriersla.com:
+breakbarriersla.com:
  ssl:
    type: LetsEncrypt
    conf: {}
